@@ -1,0 +1,294 @@
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a55eea;
+  --accent-color: #00cec9;
+  --background-color: #2d3436;
+  --text-color: #dfe6e9;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --success-color: #00b894;
+  --error-color: #d63031;
+  --neutral-color: #fdcb6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--background-color), #4834d4);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+        
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Scoreboard Styles */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.score-container {
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.score {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.score-divider {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+/* Game Area Styles */
+.game-area {
+  margin-bottom: 3rem;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  background: var(--card-bg);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  backdrop-filter: blur(5px);
+}
+
+.choice-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.choice-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.battle-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.choice-display {
+  width: 120px;
+  height: 120px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.choice-display img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.vs-display {
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.result-message {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+}
+
+.game-tip {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.8;
+  min-height: 1.5rem;
+}
+
+/* Controls Styles */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.control-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.control-btn:hover {
+  background: var(--secondary-color);
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.settings {
+  margin-bottom: 1rem;
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.settings-btn:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(108, 92, 231, 0.8),
+      0 0 30px rgba(108, 92, 231, 0.6);
+  }
+}
+
+.winning {
+  animation: winner 0.5s ease-in-out;
+}
+
+@keyframes winner {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .choices {
+    gap: 1rem;
+  }
+
+  .choice-btn {
+    padding: 1rem;
+  }
+
+  .choice-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .battle-display {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .vs-display {
+    font-size: 1.5rem;
+  }
+
+  .result-message {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark Theme */
+[data-theme="light"] {
+  --background-color: #f5f6fa;
+  --text-color: #2d3436;
+  --card-bg: rgba(255, 255, 255, 0.9);
+}
